@@ -4,6 +4,7 @@ import { Layout } from "./components/Layout";
 import { Post } from "./components/Post";
 import { Sidebar } from "./components/Sidebar";
 import "./global.css";
+import { posts } from "./Mocks/mock";
 
 export function App() {
   return (
@@ -12,10 +13,9 @@ export function App() {
       <Layout>
         <Sidebar />
         <Content>
-          <Post />
-          <Post />
-          <Post />
-          <Post />
+          {posts.map((post) => (
+            <Post key={post.id} content={post} />
+          ))}
         </Content>
       </Layout>
     </div>
